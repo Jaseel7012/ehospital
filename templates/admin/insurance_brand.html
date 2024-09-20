@@ -1,0 +1,16 @@
+
+{% extends 'admin/index.html' %}
+{% load static %}
+{% block content %}
+    
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+    <form action="" method="post">
+        {% csrf_token %}
+       {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Add </button>
+        
+    </form>
+
+</div>
+
+{% endblock %}

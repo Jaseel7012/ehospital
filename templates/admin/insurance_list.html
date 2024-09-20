@@ -1,0 +1,51 @@
+
+{% extends 'admin/index.html' %}
+{% load static %}
+{% block content %}
+    
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+    <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">R No</th>
+            <th scope="col">    Patient </th>
+            <th scope="col">Member Id</th>
+            <th scope="col">Insurance</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+           
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for insurance in insurances %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{insurance.patient}}</td>
+            <td>{{insurance.member_id}}</td>
+            <td>
+                {{insurance.ins_brand}}
+                
+            </td>
+            <td>
+                {% if insurance.is_verify %}
+                <span class="badge bg-success">Verified</span>
+                {% else %}
+                <span class="badge bg-warning">pending</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'insurance-detail' insurance.id %}" class="btn btn-primary">Detail</a>
+            </td>
+            
+            
+          </tr>
+          {% endfor %}
+          
+          
+        </tbody>
+      </table>
+
+</div>
+
+{% endblock %}

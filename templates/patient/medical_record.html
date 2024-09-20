@@ -1,0 +1,57 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container shadow bg-light" style="width: 60%; margin-top: 130px;">
+    
+    
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">R.No</th>
+            <th scope="col">Token </th>
+            <th scope="col">Visited Date</th>
+            <th scope="col">Description</th>
+            
+            <th scope="col">Fees</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in details %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{item.token}}</td>
+            <td>{{item.visited_date}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.amount}}</td>
+            
+            
+          </tr>
+          {% endfor %}
+          
+          
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <th scope="col">Test/Scan </th>
+          <th scope="col">Price</th>
+        </thead>
+        <tbody>
+          {% for rec in res %}
+          <tr>
+            <td>{{rec.name}}</td>
+            <td>{{rec.price}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+       <br>
+       Total: {{total}}
+       <br>
+        <a href="" class="btn btn-primary ">Pay Now</a>
+        <h4>OR</h4>
+        <a href="{% url 'use-insurance' %}" class="btn btn-primary ">Use Insurance</a>
+</div>
+{% endblock content %}

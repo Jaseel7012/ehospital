@@ -1,0 +1,57 @@
+
+{% extends 'doctor/components/navbar.html' %}
+{% block content  %}
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+    <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">Rno</th>
+            <th scope="col">patient</th>
+            <th scope="col"> Diagnose</th>
+            <th scope="col"> Description </th>
+            
+            <th scope="col">Visited Date</th>
+            <th scope="col">Next Date</th>
+           
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for patient in page %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{patient.patient}}</td>
+                <td>{{patient.diagnose}}</td>
+                <td>{{patient.description}}</td>
+                <td>{{patient.visited_date}}</td>
+                <td>{{patient.next_date}}</td>
+            </tr>
+            {% endfor %}
+          
+          
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if page.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page.previous_page_number}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {% endif %}
+          {% for num in page.paginator.page_range  %}
+          <li class="page-item {% if page.number == num  %} activate {% endif %}"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+          {% endfor %}
+          {% if page.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page.next_page_number}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+</div>
+
+{% endblock %}

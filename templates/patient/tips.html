@@ -1,0 +1,29 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+
+{% for tips in healthTips %}
+<div class="container shadow bg-light" style="width: 60%; margin-top: 130px; height: auto;">
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+               
+                   <h4>{{tips.title}}</h4>
+                   <p>
+                    {{tips.description}}
+                   </p>
+                   <u>Prevention method</u>
+                   <p>
+                    {{tips.prevention_tips}}
+                   </p>
+                   
+                  
+            </div>
+            
+        </div>
+
+    </div>
+ 
+</div>
+{% endfor %}
+{% endblock %}

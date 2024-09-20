@@ -1,0 +1,17 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container shadow bg-light" style="width: 60%; margin-top: 130px; height: 200px;">
+    <div>
+        Doctor : {{doctor}}
+    </div>
+    <div>
+        Token : {{appointment.token}}
+    </div>
+    <div>
+        Appoint Date : {{appointment.appoint_date}}
+    </div>
+</div>
+
+{% endblock %}

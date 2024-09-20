@@ -1,0 +1,19 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+<div class="container shadow " style="width: 20%;margin-top: 20px;">
+    <br>
+    {% for ins in insurances %}
+    <div ">
+        Member Id : {{ins.member_id}}
+    </div>
+    {% endfor %}
+    <br>
+    <form method="post" action="{% url 'checkout-session-create' %}">
+        {% csrf_token %}
+        <h3>Amount: {{amount}}</h3>
+        <button type="submit" id="checkout" class="btn btn-success">Pay</button>
+    </form>
+   
+</div>
+{% endblock %}

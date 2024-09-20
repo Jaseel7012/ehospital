@@ -1,0 +1,65 @@
+
+{% extends 'admin/index.html' %}
+{% load static %}
+{% block content %}
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+    <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">R No</th>
+            <th scope="col"> Name</th>
+            <th scope="col">Appoint Date </th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+           
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in page %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{item.user}}</td>
+            <td>{{item.appoint_date}}</td>
+            <td>
+                {% if item.is_confirm %}
+                <span class="badge bg-success"> Booked</span>
+                {% else %}
+                <span class="badge bg-danger"> Not Booked</span>
+                <a href="{% url 'book-appointment' item.id %}" class="btn btn-primary">Book Now</a>
+                {% endif %}
+            </td>
+            
+            
+          </tr>
+          {% endfor %}
+          
+          
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if page.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{page.previous_page_number}}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% endif %}
+      {% for num in page.paginator.page_range  %}
+      <li class="page-item {% if page.number == num  %} activate {% endif %}"><a class="page-link" href="?page={{num}}">{{num}}</a></li>
+      {% endfor %}
+          
+       {% if page.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{page.next_page_number}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% endif %}
+        </ul>
+      </nav>
+</div>
+
+
+{% endblock %}

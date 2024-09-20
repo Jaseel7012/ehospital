@@ -1,0 +1,62 @@
+{% extends 'doctor/components/navbar.html' %}
+{% block content  %}
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+   <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="" class="form-label">Name</label>
+        <input class="form-control" name="name" value="{{appointment}}">
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Age</label>
+        <input class="form-control" value="{{user_detail.age}}">
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Token</label>
+        <input class="form-control" name="token" value="{{appointment.token}}">
+
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Diagnose</label>
+        <input class="form-control" name="diagnose" >
+
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">description:</label>
+        <textarea class="form-control" name="description" rows="5" cols="40" id=""></textarea>
+
+    </div>
+    <div class="form-group">
+        <label for="" class="form-label">Visited Date:</label>
+        <input type="date" class="form-control" name="visited_date" >
+
+    </div>
+
+    <div class="form-group">
+        <label for="" class="form-label">Next date:</label>
+        <input type="date" class="form-control" name="next_date" >
+
+    </div>
+    <div class="form-group">
+        <label for="">Scanners:</label>
+        {% for scanner in scanners %}
+        <input type="checkbox" name="scanner_ids" id="scanner_ids" value="{{scanner.id}}">{{scanner.name}}
+        {%  endfor %}
+        
+
+    </div>
+
+    <div class="form-group">
+        <label for="" class="form-label">Amount:</label>
+        <input class="form-control" name="amount" >
+
+    </div>
+    <div class="form-group mt-3">
+    <button type="submit" class="btn btn-success">Save</button>
+
+    </div>
+    
+   </form>
+</div>
+
+{% endblock %}

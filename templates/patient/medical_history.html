@@ -1,0 +1,49 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container shadow bg-light" style="width: 60%; margin-top: 130px;">
+    
+    
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">R.No</th>
+            <th scope="col">Token </th>
+            <th scope="col">Dr</th>
+            
+            <th scope="col">Visited Date</th>
+            <th scope="col">Next date</th>
+            <th scope="col">Description</th>
+            
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in my_records %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{item.token}}</td>
+            <td>{{item.doctor.user}}</td>
+            
+            <td>{{item.visited_date}}</td>
+            <td>{{item.next_date}}</td>
+            <td>{{item.description}}</td>
+            
+            
+            
+          </tr>
+          {% endfor %}
+          
+          
+        </tbody>
+    
+        
+       
+      </table>
+       
+      
+</div>
+{% endblock content %}

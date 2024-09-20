@@ -1,0 +1,43 @@
+
+{% extends 'doctor/components/navbar.html' %}
+{% block content  %}
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+    <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">Rno</th>
+            <th scope="col">Name</th>
+            <th scope="col"> Token</th>
+            <th scope="col"> Date </th>
+            
+            <th scope="col"></th>
+           
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <th>{{patient.user}}</th>
+            <th>{{patient.token}}</th>
+            <th>{{patient.appoint_date}}</th>
+             <th>{% if patient.is_checked  %}
+              <h4 class="text-success">Checked </h4>
+              {% else %}
+              <a href="{% url 'check-now' patient.user.id %}" class="btn btn-primary">Check Now</a>
+              {% endif %}
+            </th> 
+            
+            
+            
+          </tr>
+          {% endfor %}
+          
+          
+        </tbody>
+      </table>
+     
+</div>
+
+{% endblock %}

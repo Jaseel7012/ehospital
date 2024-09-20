@@ -1,0 +1,30 @@
+{% extends 'admin/index.html' %}
+{% load static %}
+{% block content %}
+    
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+    <div class="container d-flex justify-content-center"></div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+               
+                   <h4>Patient : {{insurance.patient}}</h4>
+                   <p>
+                    Member Id: {{insurance.member_id}}
+                   </p>
+                   <p>Member Name:{{insurance.member_name}}</p>
+                   {% if insurance.is_verify %}
+                    <h4 class="text-success">Accepted</h4>
+                   {% else %}
+                   <form action="" method="post">
+                    {% csrf_token %}
+                   <button type="submit" class="btn btn-success">Accept</button>
+                </form>
+                   {% endif %}
+                   
+                  
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

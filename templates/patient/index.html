@@ -1,0 +1,23 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6">
+                <div class="">
+                    <img src="{% static 'assets/img/welcome.jpg' %}" width="100%" height="600px">
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-xxl-6 mt-5">
+                <div class="container shadow" style="width: 90%;margin-top: 30%;">
+                <h2 class="text-center">Welcome {{username}}</h2>
+                <h4 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                     eH is Here to Take Care for You..
+                </h4>
+
+                <a href="{% url 'make-appointment' %}" class="btn btn-primary mb-2">Make An Appointment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

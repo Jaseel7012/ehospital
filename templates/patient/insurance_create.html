@@ -1,0 +1,32 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container shadow bg-light" style="width: 60%; margin-top: 130px; height: auto;">
+    <form action="" method="post">
+        {% csrf_token %}
+       <div class="form-group">
+        <label for="" class="form-label">User</label>
+        <input type="text" name="name" value="{{user}}" disabled class="form-control">
+       </div>
+       <div class="form-group">
+        <label for="" class="form-label">Member Id:</label>
+        <input type="text" name="member_id" class="form-control" >
+       </div>
+       <div class="form-group">
+        <label for="" class="form-label">Member Name:</label>
+        <input type="text" name="member_name" class="form-control">
+       </div>
+       <div class="form-group">
+        <label for="" class="form-label">Insurance:</label>
+        <select name="ins_brand" id="" class="form-control">
+            {% for insurance in insurances %}
+            <option value="{{insurance.id}}">{{insurance}}</option>
+            {% endfor %}
+        </select>
+       </div>
+        <button type="submit" class="btn btn-success">Apply </button>
+        
+    </form>
+</div>
+{% endblock content %}

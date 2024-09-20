@@ -1,0 +1,37 @@
+{% extends 'admin/index.html' %}
+{% load static %}
+{% block content %}
+    
+<div class="container shadow " style="width: 80%;margin-top: 20px;">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label class="form-label">User Name</label>
+        <input type="text" name="name" class="form-control" value="{{appointment.user}}">
+    </div>
+    <div class="form-group">
+        
+        <label class="form-label">Appoint Date:</label>
+        <input type="date" name="appoint_date" class="form-control" value="{{appointment.appoint_date|date:'Y-m-d'}}">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Disease:</label>
+        <input type="text" name="disease" class="form-control" value="{{appointment.disease}}">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Token No:</label>
+        <input type="text" name="token" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label class="form-label">Doctor:</label>
+        <select name="doctor" class="form-control">
+            {% for doctor in doctors %}
+            <option value="{{doctor.id}}">{{doctor}}</option> 
+            {% endfor %}
+        </select>
+    </div>
+    <button class="btn btn-primary">Confirm</button>
+  </form>
+</div>
+
+{% endblock %}

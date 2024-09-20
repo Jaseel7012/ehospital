@@ -1,0 +1,42 @@
+{% extends 'patient/base.html' %}
+{% block content %}
+
+<div class="container shadow " style="width: 40%;margin-top: 10%;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row container">
+
+            <h2 class="text-center">Login Page</h2>
+            <hr>
+
+            <label for="">User Name:</label>
+            <input type="text" class="form-control" name="username" id="username" required>
+
+
+
+
+            <label for="">Password:</label>
+            <input type="password" class="form-control" name="password" id="password" required>
+
+
+
+
+
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 mb-2 text-center">
+                <input type="submit" value="Login" class="btn btn-secondary" ><br>
+                <b>Don't Have an Account? </b> <a href="{% url 'register' %}">Register Here</a><br>
+                <a href="{% url 'doctor-login' %}">Doctor's Login Here</a>
+
+            </div>
+        </div>
+    </form>
+
+
+
+</div>
+
+
+
+
+{% endblock %}

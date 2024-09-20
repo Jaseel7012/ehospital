@@ -1,0 +1,21 @@
+{% extends 'patient/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container shadow bg-light" style="width: 60%; margin-top: 130px; height: 200px;">
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                <div class="card p-3" style="width: 18rem;">
+                   <h4>Do you want to Cancel This Schedule ?</h4>
+                   <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                   </form>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

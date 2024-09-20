@@ -1,0 +1,28 @@
+{% extends 'doctor/base.html' %}
+
+{% block content %}
+
+  <div class="d-flex justify-content-center align-items-center mt-4">
+  
+  </div>
+
+
+<div class="container shadow " style="width: 60%; margin-top: 10%;">
+    <h3 class="text-center">Login</h3>
+    <form method="post">
+        {% csrf_token %}
+        <label class="form-label">User Name:</label>
+      <input type="text" class="form-control" name="username" placeholder="User Name" required>
+      <label class="form-label">Password:</label>
+      <input type="password" class="form-control" name="password" placeholder="Password" required>
+      <br>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success text-center">Login</button><br>
+        <b>Dont have an account?</b>&nbsp;<a href="{% url 'doctor-register' %}">Create Account</a><br>
+        <a href="{% url 'patient-login' %}">Patient Login</a>
+      </div>
+ 
+    </form>
+</div>
+
+{% endblock %}
